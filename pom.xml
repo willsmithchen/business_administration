@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.business</groupId>
+    <artifactId>Business_Administration</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <spring.version>2.3.2.RELEASE</spring.version>
+        <mybatis-plus.version>3.3.2</mybatis-plus.version>
+        <mybatis.version>2.1.3</mybatis.version>
+        <mysql.connector.vesrion>8.0.21</mysql.connector.vesrion>
+        <druid.version>1.1.23</druid.version>
+        <captcha.version>1.6.2</captcha.version>
+        <depend.version>1.0-SNAPSHOT</depend.version>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
+    </properties>
+    <dependencies>
+        <!--lombok可以使用注解的方式提供get和set方法  -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.16.10</version>
+        </dependency>
+        <!--SpringMvc依赖-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <version>${spring.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>slf4j-log4j12</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <!--.如果我们有自定义的ConfigurationProperties类，需要为我们定义的ConfigurationProperties类生成元信息.在我们的autoconfiguration的模块中添加如下jar包依赖-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <version>${spring.version}</version>
+            <optional>true</optional>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-autoconfigure-processor -->
+        <!--Spring Boot自动配置注释处理器-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-autoconfigure-processor</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-autoconfigure -->
+        <!--Spring Boot自动配置-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-autoconfigure</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-jdbc -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-jdbc</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-aop</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.mybatis.spring.boot/mybatis-spring-boot-starter -->
+        <dependency>
+            <groupId>org.mybatis.spring.boot</groupId>
+            <artifactId>mybatis-spring-boot-starter</artifactId>
+            <version>${mybatis.version}</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/com.baomidou/mybatis-plus-boot-starter -->
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-boot-starter</artifactId>
+            <version>${mybatis-plus.version}</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+        <!--mysql依赖-->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>${mysql.connector.vesrion}</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/com.alibaba/druid-spring-boot-starter -->
+        <!--druid-->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid-spring-boot-starter</artifactId>
+            <version>${druid.version}</version>
+        </dependency>
+        <!-- Sa-Token 权限认证，在线文档：https://sa-token.cc -->
+        <dependency>
+            <groupId>cn.dev33</groupId>
+            <artifactId>sa-token-spring-boot-starter</artifactId>
+            <version>1.33.0</version>
+        </dependency>
+        <dependency>
+            <groupId>com.github.xiaoymin</groupId>
+            <artifactId>knife4j-spring-boot-starter</artifactId>
+        </dependency>
+        <!--验证码-->
+        <dependency>
+            <groupId>com.github.whvcse</groupId>
+            <artifactId>easy-captcha</artifactId>
+            <version>${captcha.version}</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-compiler-plugin -->
+        <dependency>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <version>3.10.0</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-maven-plugin -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-maven-plugin</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/cn.hutool/hutool-all -->
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+            <version>5.8.10</version>
+        </dependency>
+    </dependencies>
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.github.xiaoymin</groupId>
+                <artifactId>knife4j-dependencies</artifactId>
+                <!--在引用时请在maven中央仓库搜索2.X最新版本号-->
+                <version>2.0.9</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>${spring.version}</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>
