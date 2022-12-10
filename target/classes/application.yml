@@ -39,11 +39,9 @@ spring:
     name: administration
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-#    url: jdbc:mysql://180.76.99.166:3306/business_administration?useSSl=true&useUnicode=true&characterEncoding=Utf-8&serverTimezone=Asia/Shanghai
-    url: jdbc:mysql://127.0.0.1:3306/business_administration?useSSl=true&useUnicode=true&characterEncoding=Utf-8&serverTimezone=Asia/Shanghai
+    url: jdbc:mysql://180.76.99.166:3306/business_administration?useSSl=true&useUnicode=true&characterEncoding=Utf-8&serverTimezone=Asia/Shanghai
     username: root
-    password: admin@123
-#    password: Admin123@qwe
+    password: Admin123@qwe
 
   thymeleaf:
     cache: false
